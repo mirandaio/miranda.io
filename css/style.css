@@ -1,0 +1,146 @@
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+nav {
+  width: 272px;
+  padding-top: 50px;
+  border-right: thin dotted black;
+  font-family: courier;
+}
+
+nav ul {
+  margin: 0 auto;
+  width: 70px;
+  list-style-type: none;
+}
+
+nav li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.main-content, .resume-content {
+  overflow: auto;
+  padding-left: 65px;
+  flex: 1;
+}
+
+.main-content {
+  padding-top: 20px;
+}
+
+.resume-content {
+  padding-top: 52px;
+}
+
+.main-content p {
+  margin-top: 8px;
+  width: 670px;
+  font-size: 21px;
+  text-align: justify;
+}
+
+.main-header {
+  width: 681px;
+}
+
+.big-hey {
+  font-family: courier;
+  margin-right: 28px;
+  font-size: 120px;
+}
+
+.intro {
+  font-family: courier;
+  font-size: 60px;
+  color: #999;
+}
+
+img {
+  width: 304px;
+  float: left;
+  border: thin solid black;
+  margin-right: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 55px;
+  font-size: 26px;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #999;
+  text-decoration: underline;
+}
+
+.resume-content {
+  flex: 1;
+}
+
+.resume-section {
+  display: flex;
+  width: 730px;
+}
+
+.section-name {
+  width: 160px;
+  font-family: courier;
+}
+
+.section-name h3 {
+  font-weight: normal;
+}
+
+.section-content {
+  width: 570px;
+}
+
+.skills-section {
+  width: 570px;
+  font-size: 16px;
+}
+
+.section-item {
+  margin-bottom: 12px;
+}
+
+.section-item ul {
+  margin-left: 24px;
+  font-size: 16px;
+}
+
+.subsection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-name {
+  font-weight: 400;
+}
+
+.italic {
+  font-style: italic;
+}

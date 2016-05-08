@@ -29,7 +29,7 @@ gulp.task('build', function() {
 
 gulp.task('deploy', function() {
   return gulp.src('dist/**/*')
-    .pipe(ghPages());
+    .pipe(ghPages({ branch: 'master' }));
 });
 
 gulp.task('clean:dist', function() {

@@ -23,8 +23,13 @@ gulp.task('img', function() {
     .pipe(gulp.dest('dist/img'));
 });
 
+gulp.task('cname', function() {
+  return gulp.src('app/CNAME')
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('build', function() {
-  runSequence('clean:dist', ['html', 'cssnano', 'img']);
+  runSequence('clean:dist', ['cname', 'html', 'cssnano', 'img']);
 });
 
 gulp.task('deploy', function() {

@@ -35,21 +35,21 @@ nav li {
   margin-bottom: 8px;
 }
 
-.main-content, .resume-content {
+.about-content, .main-content {
   overflow: auto;
   padding-left: 65px;
   flex: 1;
 }
 
-.main-content {
+.about-content {
   padding-top: 20px;
 }
 
-.resume-content {
+.main-content {
   padding-top: 52px;
 }
 
-.main-content p {
+.about-content p {
   margin-top: 8px;
   width: 670px;
   font-size: 21px;
@@ -96,7 +96,7 @@ a:hover {
   text-decoration: underline;
 }
 
-.resume-content {
+.main-content {
   flex: 1;
 }
 

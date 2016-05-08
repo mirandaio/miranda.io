@@ -3,6 +3,7 @@ var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var del = require('del');
 var runSequence = require('run-sequence');
+var ghPages = require('gulp-gh-pages');
 
 gulp.task('cssnano', function() {
   return gulp.src('app/css/*.css')
@@ -24,6 +25,11 @@ gulp.task('img', function() {
 
 gulp.task('build', function() {
   runSequence('clean:dist', ['html', 'cssnano', 'img']);
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('dist/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('clean:dist', function() {

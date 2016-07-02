@@ -2,11 +2,10 @@ window.onload = function() {
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
-  var MAX = 96 * 60;
   var time = 0;
   var frame = 0;
   var timeNextFrame = 0;
-  var vines = vines = [{x: 0, y: 0, a: 0, ai: 0, w: 8, p: [], l: MAX}];
+  var vines = vines = [{x: 0, y: 0, a: 2.35, ai: 0, w: 8, p: [], l: Infinity}];
 
   update();
 
@@ -30,31 +29,32 @@ window.onload = function() {
         v.y += dy;
         v.a += v.ai / v.w / 2; // base angle increment on thickness of branch
         v.p.splice(0, v.p.length - v.l);
-        v.p.splice(0, v.p.length - 60 * 5); // leave the last 60 points
-        v.p.push({x: v.x, y: v.y, dx: dx, dy: dy}); // add a point to each vine
+        v.p.splice(0, v.p.length - 300); // leave the last 300 points
+        v.p.push({x: v.x, y: v.y}); // add a point to each vine
         if(frame % 30 == 0) {
           v.ai = Math.random() - 0.5;
         }
-        if(v.w > 1 && Math.random() < v.l / 16384 / 2) {
+        if(v.w > 5 && Math.random() < 0.02 && vines.length < 60) {
           // position of new vine same as position of current vine
           vines.push({
             x: v.x,
             y: v.y,
             a: v.a,
             ai: v.ai,
-            w: v.w / 2,
+            w: Math.random() * 4 + 3,
             p: [],
-            l: Math.min(v.l, 0 | v.w * 32 * (1 + Math.random()))
+            l: Math.min(4096, 0 | v.w * 32 * (1 + Math.random()))
           });
         }
       });
     }
 
     // render visual
-    H = canvas.height = 512; // preserve aspect ratio of browser window
-    W = canvas.width = 0 | H * innerWidth / innerHeight;
-    ctx.translate(W/2, H/2);
+    canvas.height = 380;
+    canvas.width = 380;
+    ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.strokeStyle = '#000';
+    ctx.lineWidth = 3;
     vines.forEach(v => {
       if(v.w == 8) {
         ctx.translate(-v.x, -v.y);

@@ -154,7 +154,7 @@ a:hover {
 canvas {
   display: block;
   border: 2px solid black;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 20px auto;
   height: 250px;
   width: 250px;
 }

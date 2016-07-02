@@ -75,7 +75,7 @@ nav li {
 img {
   width: 304px;
   float: left;
-  border: thin solid black;
+  border: 2px solid black;
   margin-right: 20px;
 }
 
@@ -145,11 +145,16 @@ a:hover {
   font-style: italic;
 }
 
+.canvas-container {
+  position: absolute;
+  bottom: 0;
+  width: 272px;
+}
+
 canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  display: block;
+  border: 2px solid black;
+  margin: 0 auto 10px auto;
+  height: 250px;
+  width: 250px;
 }

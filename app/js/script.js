@@ -5,12 +5,21 @@ window.onload = function() {
   var time = 0;
   var frame = 0;
   var timeNextFrame = 0;
-  var vines = vines = [{x: 0, y: 0, a: 2.35, ai: 0, w: 8, p: [], l: Infinity}];
+  var vines = vines = [{
+    x: 0,
+    y: 0,
+    a: 2.35,
+    da: 0,
+    width: 8,
+    points: [],
+    lifetime: Infinity
+  }];
 
   update();
 
   function update() {
     requestAnimationFrame(update);
+
     var currentTime = performance.now() / 1000;
     
     while(time < currentTime) {
@@ -21,29 +30,31 @@ window.onload = function() {
       timeNextFrame += 1 / 60;
       
       // update visuals for a single frame
-      vines = vines.filter(vine => vine.l--);
+      vines = vines.filter(vine => vine.lifetime--);
       vines.forEach(vine => {
-        dx = Math.cos(vine.a) * vine.w / 2;
-        dy = Math.sin(vine.a) * vine.w / 2;
+        dx = Math.cos(vine.a) * vine.width / 2;
+        dy = Math.sin(vine.a) * vine.width / 2;
         vine.x += dx;
         vine.y += dy;
-        vine.a += vine.ai / vine.w / 2;
-        vine.p.splice(0, vine.p.length - vine.l);
-        vine.p.splice(0, vine.p.length - 65); // leave the last 300 points
-        vine.p.push({x: vine.x, y: vine.y}); // add a point to each vine
+        vine.a += vine.da / vine.width / 2;
+        vine.points.splice(0, vine.points.length - vine.lifetime);
+        vine.points.splice(0, vine.points.length - 65); // leave last 65 points
+        vine.points.push({x: vine.x, y: vine.y}); // add a point to each vine
+
         if(frame % 30 == 0) {
-          vine.ai = Math.random() - 0.5;
+          vine.da = Math.random() - 0.5;
         }
-        if(vine.w > 5 && Math.random() < 0.02 && vines.length < 60) {
+
+        if(vine.width > 5 && Math.random() < 0.02 && vines.length < 60) {
           // position of new vine same as position of current vine
           vines.push({
             x: vine.x,
             y: vine.y,
             a: vine.a,
-            ai: vine.ai,
-            w: Math.random() * 4 + 3,
-            p: [],
-            l: Math.min(4096, 0 | vine.w * 32 * (1 + Math.random()))
+            da: vine.da,
+            width: Math.random() * 4 + 3,
+            points: [],
+            lifetime: Math.min(4096, 0 | vine.width * 32 * (1 + Math.random()))
           });
         }
       });
@@ -56,12 +67,13 @@ window.onload = function() {
     ctx.strokeStyle = '#000';
     ctx.lineWidth = 4;
     vines.forEach(vine => {
-      if(vine.w == 8) {
+      if(vine.width == 8) {
         ctx.translate(-vine.x, -vine.y);
       }
+
       ctx.beginPath();
-      l = vine.p.length - 1;
-      for(i = l; p = vine.p[i]; i--) {
+      l = vine.points.length - 1;
+      for(i = l; p = vine.points[i]; i--) {
         ctx.lineTo(p.x, p.y);
       }
       ctx.stroke();

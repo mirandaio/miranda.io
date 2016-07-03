@@ -29,7 +29,7 @@ window.onload = function() {
         v.y += dy;
         v.a += v.ai / v.w / 2; // base angle increment on thickness of branch
         v.p.splice(0, v.p.length - v.l);
-        v.p.splice(0, v.p.length - 300); // leave the last 300 points
+        v.p.splice(0, v.p.length - 65); // leave the last 300 points
         v.p.push({x: v.x, y: v.y}); // add a point to each vine
         if(frame % 30 == 0) {
           v.ai = Math.random() - 0.5;
@@ -50,11 +50,11 @@ window.onload = function() {
     }
 
     // render visual
-    canvas.height = 380;
-    canvas.width = 380;
+    canvas.height = 512;
+    canvas.width = 512;
     ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.strokeStyle = '#000';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 4;
     vines.forEach(v => {
       if(v.w == 8) {
         ctx.translate(-v.x, -v.y);

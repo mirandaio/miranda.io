@@ -1,10 +1,9 @@
 window.onload = function() {
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
-
-  var time = 0;
   var frame = 0;
-  var timeNextFrame = 0;
+  var lastFrameTime = 0;
+
   var vines = vines = [{
     x: 0,
     y: 0,
@@ -14,53 +13,55 @@ window.onload = function() {
     points: [],
     lifetime: Infinity
   }];
+  
+  window.requestAnimationFrame(update);
 
-  update();
+  function update(time) {
+    window.requestAnimationFrame(update);
 
-  function update() {
-    requestAnimationFrame(update);
+    var delta = time - lastFrameTime;
 
-    var currentTime = performance.now() / 1000;
-    
-    while(time < currentTime) {
-      while(time < timeNextFrame) {
-        time += 1 / 16384;
-      }
-      frame++;
-      timeNextFrame += 1 / 60;
-      
-      // update visuals for a single frame
-      vines = vines.filter(vine => vine.lifetime--);
-      vines.forEach(vine => {
-        dx = Math.cos(vine.a) * vine.width / 2;
-        dy = Math.sin(vine.a) * vine.width / 2;
-        vine.x += dx;
-        vine.y += dy;
-        vine.a += vine.da / vine.width / 2;
-        vine.points.splice(0, vine.points.length - vine.lifetime);
-        vine.points.splice(0, vine.points.length - 65); // leave last 65 points
-        vine.points.push({x: vine.x, y: vine.y}); // add a point to each vine
-
-        if(frame % 30 == 0) {
-          vine.da = Math.random() - 0.5;
-        }
-
-        if(vine.width > 5 && Math.random() < 0.02 && vines.length < 60) {
-          // position of new vine same as position of current vine
-          vines.push({
-            x: vine.x,
-            y: vine.y,
-            a: vine.a,
-            da: vine.da,
-            width: Math.random() * 4 + 3,
-            points: [],
-            lifetime: Math.min(4096, 0 | vine.width * 32 * (1 + Math.random()))
-          });
-        }
-      });
+    // if it's been less than 16ms (60fps) since last frame, don't
+    // do anything and return
+    if(delta < 16) {
+      return;
     }
 
-    // render visual
+    lastFrameTime = time;
+    frame++;
+
+    // update
+    vines = vines.filter(vine => vine.lifetime--);
+    vines.forEach(vine => {
+      dx = Math.cos(vine.a) * vine.width / 2;
+      dy = Math.sin(vine.a) * vine.width / 2;
+      vine.x += dx;
+      vine.y += dy;
+      vine.a += vine.da / vine.width / 2;
+      vine.points.splice(0, vine.points.length - vine.lifetime);
+      vine.points.splice(0, vine.points.length - 65); // leave last 65 points
+      vine.points.push({x: vine.x, y: vine.y}); // add a point to each vine
+
+      // every 30 frames change the angle increment
+      if(frame % 30 == 0) {
+        vine.da = Math.random() - 0.5;
+      }
+
+      if(vine.width > 5 && Math.random() < 0.02 && vines.length < 60) {
+        // position of new vine same as position of current vine
+        vines.push({
+          x: vine.x,
+          y: vine.y,
+          a: vine.a,
+          da: vine.da,
+          width: Math.random() * 4 + 3,
+          points: [],
+          lifetime: Math.min(4096, 0 | vine.width * 32 * (1 + Math.random()))
+        });
+      }
+    });
+
+    // render
     canvas.height = 512;
     canvas.width = 512;
     ctx.translate(canvas.width / 2, canvas.height / 2);

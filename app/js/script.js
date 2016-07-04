@@ -31,8 +31,10 @@ window.onload = function() {
     frame++;
 
     // update
-    vines = vines.filter(vine => vine.lifetime--);
-    vines.forEach(vine => {
+    vines = vines.filter(function(vine) {
+      return vine.lifetime--
+    });
+    vines.forEach(function(vine) {
       dx = Math.cos(vine.a) * vine.width / 2;
       dy = Math.sin(vine.a) * vine.width / 2;
       vine.x += dx;
@@ -67,7 +69,7 @@ window.onload = function() {
     ctx.translate(canvas.width / 2, canvas.height / 2);
     ctx.strokeStyle = '#000';
     ctx.lineWidth = 4;
-    vines.forEach(vine => {
+    vines.forEach(function(vine) {
       if(vine.width == 8) {
         ctx.translate(-vine.x, -vine.y);
       }

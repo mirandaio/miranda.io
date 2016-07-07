@@ -7,7 +7,7 @@ window.onload = function() {
   var vines = vines = [{
     x: 0,
     y: 0,
-    a: 2.35,
+    a: 2 * Math.PI * Math.random(),
     da: 0,
     width: 8,
     points: [],

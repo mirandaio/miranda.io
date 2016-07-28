@@ -4,6 +4,7 @@ var imagemin = require('gulp-imagemin');
 var del = require('del');
 var runSequence = require('run-sequence');
 var ghPages = require('gulp-gh-pages');
+var uglify = require('gulp-uglify');
 
 gulp.task('cssnano', function() {
   return gulp.src('app/css/*.css')
@@ -25,6 +26,7 @@ gulp.task('img', function() {
 
 gulp.task('js', function() {
   return gulp.src('app/js/*.js')
+    .pipe(uglify())
     .pipe(gulp.dest('dist/js'));
 });
 

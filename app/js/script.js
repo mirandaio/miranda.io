@@ -1,4 +1,20 @@
 window.onload = function() {
+  var nav = document.querySelector('nav');
+  var container = document.querySelector('.container');
+
+  function updateView(view) {
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener('load', function(e) {
+      container.innerHTML = e.target.response;
+    });
+    xhr.open('GET', view);
+    xhr.send();
+  }
+
+  updateView('about.html');
+
+  // Animation code
+
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
   var frame = 0;

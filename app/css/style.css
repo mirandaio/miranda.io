@@ -35,7 +35,7 @@ nav li {
   margin-bottom: 8px;
 }
 
-.about-content, .main-content {
+.about-content, .container {
   overflow: auto;
   padding-left: 65px;
   flex: 1;
@@ -45,7 +45,7 @@ nav li {
   padding-top: 20px;
 }
 
-.main-content {
+.container {
   padding-top: 52px;
 }
 
@@ -94,10 +94,6 @@ a {
 a:hover {
   color: #999;
   text-decoration: underline;
-}
-
-.main-content {
-  flex: 1;
 }
 
 .resume-section {

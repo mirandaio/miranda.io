@@ -2,16 +2,27 @@ window.onload = function() {
   var nav = document.querySelector('nav');
   var container = document.querySelector('.container');
 
-  function updateView(view) {
+  nav.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('e.target', e.target);
+    console.log('e.currentTarget', e.currentTarget);
+    console.log(e.target.getAttribute('href'));
+  });
+
+  function updateView(view, cb) {
+    var url = view.split('.')[0];
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function(e) {
       container.innerHTML = e.target.response;
+      cb();
     });
     xhr.open('GET', view);
     xhr.send();
   }
 
-  updateView('about.html');
+  updateView('about.html', function() {
+    window.history.replaceState('about', '');
+  });
 
   // Animation code
 

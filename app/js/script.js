@@ -1,28 +1,42 @@
 window.onload = function() {
-  var nav = document.querySelector('nav');
+  var navList = document.querySelector('.nav-list');
   var container = document.querySelector('.container');
 
-  nav.addEventListener('click', function(e) {
-    e.preventDefault();
-    console.log('e.target', e.target);
-    console.log('e.currentTarget', e.currentTarget);
-    console.log(e.target.getAttribute('href'));
+  updateView('about', function() {
+    window.history.replaceState('about', '', '/');
+  });
+
+  window.addEventListener('popstate', function(e) {
+    updateView(e.state);
+  });
+
+  navList.addEventListener('click', function(e) {
+    if(e.target !== e.currentTarget) {
+      e.preventDefault();
+      var view  = e.target.getAttribute('href');
+      updateView(view, updateURL);
+    }
   });
 
   function updateView(view, cb) {
-    var url = view.split('.')[0];
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function(e) {
       container.innerHTML = e.target.response;
-      cb();
+      if(cb) {
+        cb(view);
+      }
     });
-    xhr.open('GET', view);
+    xhr.open('GET', view + '.html');
     xhr.send();
   }
 
-  updateView('about.html', function() {
-    window.history.replaceState('about', '');
-  });
+  function updateURL(view) {
+    if(view === 'about') {
+      window.history.pushState('about', '', '/');
+    } else {
+      window.history.pushState(view, '', view);
+    }
+  }
 
   // Animation code
 

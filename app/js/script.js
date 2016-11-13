@@ -1,9 +1,11 @@
 window.onload = function() {
   var navList = document.querySelector('.nav-list');
   var container = document.querySelector('.container');
+  var path = window.location.pathname;
+  var initialView = path === '/' ? '/about' : path;
 
-  updateView('about', function() {
-    window.history.replaceState('about', '', '/');
+  updateView(initialView, function() {
+    window.history.replaceState(initialView, '', path);
   });
 
   window.addEventListener('popstate', function(e) {
@@ -14,7 +16,9 @@ window.onload = function() {
     if(e.target !== e.currentTarget) {
       e.preventDefault();
       var view  = e.target.getAttribute('href');
-      updateView(view, updateURL);
+      if(otherView(view, window.location.pathname)) {
+        updateView(view, updateURL);
+      }
     }
   });
 
@@ -26,16 +30,18 @@ window.onload = function() {
         cb(view);
       }
     });
-    xhr.open('GET', view + '.html');
+    xhr.open('GET', 'views' + view + '.html');
     xhr.send();
   }
 
   function updateURL(view) {
-    if(view === 'about') {
-      window.history.pushState('about', '', '/');
-    } else {
-      window.history.pushState(view, '', view);
-    }
+    var path = view === '/about' ? '/' : view;
+    window.history.pushState(view, '', path);
+  }
+
+  function otherView(view, path) {
+    return (view === '/about' && path !== '/') ||
+      (view !== '/about' && view !== path);
   }
 
   // Animation code

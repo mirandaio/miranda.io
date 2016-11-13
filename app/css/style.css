@@ -35,25 +35,14 @@ nav li {
   margin-bottom: 8px;
 }
 
-.about-content, .container {
+.container {
   overflow: auto;
   padding-left: 65px;
   flex: 1;
 }
 
-.about-content {
-  padding-top: 20px;
-}
-
 .container {
   padding-top: 52px;
-}
-
-.about-content p {
-  margin-top: 8px;
-  width: 670px;
-  font-size: 21px;
-  text-align: justify;
 }
 
 .main-header {
@@ -70,6 +59,13 @@ nav li {
   font-family: courier;
   font-size: 60px;
   color: #999;
+}
+
+.about {
+  font-size: 21px;
+  margin-top: 8px;
+  text-align: justify;
+  width: 670px;
 }
 
 img {

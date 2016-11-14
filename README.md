@@ -1,4 +1,4 @@
-mirandaio.github.io
-===================
+miranda.io
+==========
 
 Personal website

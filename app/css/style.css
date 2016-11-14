@@ -21,7 +21,7 @@ nav {
   width: 272px;
   padding-top: 50px;
   border-right: thin dotted black;
-  font-family: courier;
+  font-family: monospace;
 }
 
 nav ul {
@@ -50,13 +50,13 @@ nav li {
 }
 
 .big-hey {
-  font-family: courier;
+  font-family: monospace;
   margin-right: 28px;
   font-size: 120px;
 }
 
 .intro {
-  font-family: courier;
+  font-family: monospace;
   font-size: 60px;
   color: #999;
 }
@@ -99,7 +99,7 @@ a:hover {
 
 .section-name {
   width: 160px;
-  font-family: courier;
+  font-family: monospace;
 }
 
 .section-name h3 {

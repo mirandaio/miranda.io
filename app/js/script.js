@@ -4,6 +4,29 @@ window.onload = function() {
   var path = window.location.pathname;
   var initialView = path === '/' ? '/about' : path;
 
+  var updateView = (function() {
+    var viewCache = {};
+    return function(view, cb) {
+      if(viewCache[view]) {
+        container.innerHTML = viewCache[view];
+        if(cb) {
+          cb(view);
+        }
+      } else {
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', function(e) {
+          viewCache[view] = e.target.response;
+          container.innerHTML = viewCache[view];
+          if(cb) {
+            cb(view);
+          }
+        });
+        xhr.open('GET', 'views' + view + '.html');
+        xhr.send();
+      }
+    };
+  }());
+
   updateView(initialView, function() {
     window.history.replaceState(initialView, '', path);
   });
@@ -21,18 +44,6 @@ window.onload = function() {
       }
     }
   });
-
-  function updateView(view, cb) {
-    var xhr = new XMLHttpRequest();
-    xhr.addEventListener('load', function(e) {
-      container.innerHTML = e.target.response;
-      if(cb) {
-        cb(view);
-      }
-    });
-    xhr.open('GET', 'views' + view + '.html');
-    xhr.send();
-  }
 
   function updateURL(view) {
     var path = view === '/about' ? '/' : view;

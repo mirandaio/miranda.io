@@ -46,7 +46,7 @@ nav li {
 }
 
 .main-header {
-  width: 681px;
+  width: 682px;
 }
 
 .big-hey {
@@ -70,6 +70,7 @@ nav li {
 
 img {
   width: 304px;
+  height: 229px;
   float: left;
   border: 2px solid black;
   margin-right: 20px;

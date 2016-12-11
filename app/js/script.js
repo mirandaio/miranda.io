@@ -2,7 +2,15 @@ window.onload = function() {
   var navList = document.querySelector('.nav-list');
   var container = document.querySelector('.container');
   var path = window.location.pathname;
-  var initialView = path === '/' ? '/about' : path;
+  var initialView = resolveView(path);
+
+  function resolveView(path) {
+    var validFiles = ['/projects', '/resume', '/contact'];
+    if(validFiles.includes(path)) {
+      return path;
+    }
+    return '/about';
+  }
 
   var updateView = (function() {
     var viewCache = {};

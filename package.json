@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mirandaio/mirandaio.github.io.git"
+    "url": "git+https://github.com/mirandaio/miranda.io.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alfredo Miranda <alfredo@miranda.io> (https://miranda.io)",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mirandaio/mirandaio.github.io/issues"
+    "url": "https://github.com/mirandaio/miranda.io/issues"
   },
-  "homepage": "https://github.com/mirandaio/mirandaio.github.io#readme",
+  "homepage": "https://github.com/mirandaio/miranda.io#readme",
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.1",

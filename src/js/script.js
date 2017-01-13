@@ -1,3 +1,8 @@
+import animateVines from './vines';
+
+var canvas = document.getElementById('canvas');
+animateVines(canvas);
+
 var navList = document.querySelector('.nav-list');
 var container = document.querySelector('.container');
 var path = window.location.pathname;

@@ -1,4 +1,5 @@
 import animateVines from './vines';
+import './../css/styles.css';
 
 var canvas = document.getElementById('canvas');
 animateVines(canvas);

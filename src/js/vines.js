@@ -1,9 +1,9 @@
 export default (canvas) => {
-  var ctx = canvas.getContext('2d');
-  var frame = 0;
-  var lastFrameTime = 0;
+  const ctx = canvas.getContext('2d');
+  let frame = 0;
+  let lastFrameTime = 0;
 
-  var vines = vines = [{
+  let vines = [{
     x: 0,
     y: 0,
     a: 2 * Math.PI * Math.random(),
@@ -18,7 +18,7 @@ export default (canvas) => {
   function update(time) {
     window.requestAnimationFrame(update);
 
-    var delta = time - lastFrameTime;
+    const delta = time - lastFrameTime;
 
     // if it's been less than 16ms (60fps) since last frame, don't
     // do anything and return
@@ -34,8 +34,8 @@ export default (canvas) => {
       return vine.lifetime--
     });
     vines.forEach(function(vine) {
-      dx = Math.cos(vine.a) * vine.width / 2;
-      dy = Math.sin(vine.a) * vine.width / 2;
+      const dx = Math.cos(vine.a) * vine.width / 2;
+      const dy = Math.sin(vine.a) * vine.width / 2;
       vine.x += dx;
       vine.y += dy;
       vine.a += vine.da / vine.width / 2;
@@ -74,8 +74,9 @@ export default (canvas) => {
       }
 
       ctx.beginPath();
-      l = vine.points.length - 1;
-      for(i = l; p = vine.points[i]; i--) {
+      const l = vine.points.length - 1;
+      let p;
+      for(let i = l; p = vine.points[i]; i--) {
         ctx.lineTo(p.x, p.y);
       }
       ctx.stroke();

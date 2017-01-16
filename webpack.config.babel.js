@@ -1,5 +1,7 @@
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackInlineSourcePlugin from 'html-webpack-inline-source-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
   context: resolve('src'),
@@ -10,12 +12,21 @@ export default {
   },
   module: {
     loaders: [
-      {test: /\.css$/, loaders: ['style-loader', 'css-loader']}
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader'
+        })
+      }
     ]
   },
   plugins: [
+    new ExtractTextPlugin('styles.[name].css'),
     new HtmlWebpackPlugin({
-      template: './index.html'
-    })
+      template: './index.html',
+      inlineSource: '.(js|css)$'
+    }),
+    new HtmlWebpackInlineSourcePlugin()
   ]
 };

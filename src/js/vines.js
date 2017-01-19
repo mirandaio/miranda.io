@@ -76,7 +76,7 @@ export default (canvas) => {
       ctx.beginPath();
       const len = vine.points.length;
       for(let i = 0; i < len; i++) {
-        let p = vine.points[i];
+        const p = vine.points[i];
         ctx.lineTo(p.x, p.y);
       }
       ctx.stroke();

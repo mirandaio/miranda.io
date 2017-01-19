@@ -12,6 +12,7 @@ export default {
   },
   module: {
     loaders: [
+      { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/},
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({

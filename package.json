@@ -29,6 +29,9 @@
   "scripts": {
     "prebuild:dev": "rimraf dist",
     "build:dev": "webpack && cpy dist/index.html dist --rename=200.html",
-    "postbuild:dev": "cpy 'views/*.html' 'img/*' '../dist' --cwd=src --parents"
+    "postbuild:dev": "cpy 'views/*.html' 'img/*' '../dist' --cwd=src --parents",
+    "prebuild": "rimraf dist",
+    "build": "webpack -p && cpy dist/index.html dist --rename=200.html",
+    "postbuild": "cpy 'views/*.html' 'img/*' '../dist' --cwd=src --parents"
   }
 }

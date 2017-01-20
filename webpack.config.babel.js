@@ -23,7 +23,7 @@ export default {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('styles.[name].css'),
+    new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       template: './index.html',
       inlineSource: '.(js|css)$'

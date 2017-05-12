@@ -13,25 +13,28 @@
     "url": "https://github.com/mirandaio/miranda.io/issues"
   },
   "homepage": "https://github.com/mirandaio/miranda.io#readme",
+  "dependencies": {
+    "express": "4.15.2",
+    "mustache-express": "1.2.4"
+  },
   "devDependencies": {
     "babel-core": "6.21.0",
     "babel-loader": "6.2.10",
     "babel-preset-es2015": "6.18.0",
-    "cpy-cli": "1.0.1",
     "css-loader": "0.26.1",
     "extract-text-webpack-plugin": "2.0.0-beta.5",
     "html-webpack-inline-source-plugin": "0.0.6",
     "html-webpack-plugin": "2.26.0",
-    "rimraf": "2.5.4",
     "style-loader": "0.13.1",
     "webpack": "2.2.0-rc.4"
   },
   "scripts": {
-    "prebuild:dev": "rimraf dist",
-    "build:dev": "webpack && cpy dist/index.html dist --rename=200.html",
-    "postbuild:dev": "cpy 'views/*.html' 'img/*' '../dist' --cwd=src --parents",
-    "prebuild": "rimraf dist",
-    "build": "webpack -p && cpy dist/index.html dist --rename=200.html",
-    "postbuild": "cpy 'views/*.html' 'img/*' '../dist' --cwd=src --parents"
+    "start": "node server.js",
+    "prebuild:dev": "rm -rf dist",
+    "build:dev": "webpack",
+    "postbuild:dev": "cp src/img/* src/views/*.html dist",
+    "prebuild": "rm -rf dist",
+    "build": "webpack -p",
+    "postbuild": "cp src/img/* src/views/*.html dist"
   }
 }

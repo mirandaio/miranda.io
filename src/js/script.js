@@ -1,24 +1,14 @@
 import animateVines from './vines';
 import './../css/styles.css';
 
-var canvas = document.getElementById('canvas');
+const canvas = document.getElementById('canvas');
 animateVines(canvas);
 
-var navList = document.querySelector('.nav-list');
-var container = document.querySelector('.container');
-var path = window.location.pathname;
-var initialView = resolveView(path);
+const navList = document.querySelector('.nav-list');
+const container = document.querySelector('.container');
 
-function resolveView(path) {
-  var validFiles = ['/projects', '/resume', '/contact'];
-  if(validFiles.includes(path)) {
-    return path;
-  }
-  return '/about';
-}
-
-var updateView = (function() {
-  var viewCache = {};
+const updateView = (function() {
+  const viewCache = {};
   return function(view, cb) {
     if(viewCache[view]) {
       container.innerHTML = viewCache[view];
@@ -26,7 +16,7 @@ var updateView = (function() {
         cb(view);
       }
     } else {
-      var xhr = new XMLHttpRequest();
+      const xhr = new XMLHttpRequest();
       xhr.addEventListener('load', function(e) {
         viewCache[view] = e.target.response;
         container.innerHTML = viewCache[view];
@@ -34,24 +24,20 @@ var updateView = (function() {
           cb(view);
         }
       });
-      xhr.open('GET', 'views' + view + '.html');
+      xhr.open('GET', view + '.html');
       xhr.send();
     }
   };
 }());
 
-updateView(initialView, function() {
-  window.history.replaceState(initialView, '', path);
-});
-
-window.addEventListener('popstate', function(e) {
+window.addEventListener('popstate', (e) => {
   updateView(e.state);
 });
 
-navList.addEventListener('click', function(e) {
+navList.addEventListener('click', e => {
   if(e.target !== e.currentTarget) {
     e.preventDefault();
-    var view  = e.target.getAttribute('href');
+    const view = e.target.getAttribute('href');
     if(otherView(view, window.location.pathname)) {
       updateView(view, updateURL);
     }
@@ -59,7 +45,7 @@ navList.addEventListener('click', function(e) {
 });
 
 function updateURL(view) {
-  var path = view === '/about' ? '/' : view;
+  const path = view === '/about' ? '/' : view;
   window.history.pushState(view, '', path);
 }
 

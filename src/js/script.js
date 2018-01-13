@@ -10,7 +10,7 @@ const container = document.querySelector('.container');
 const updateView = (function() {
   const viewCache = {};
   return function(view, cb) {
-    if(viewCache[view]) {
+    if (viewCache[view]) {
       container.innerHTML = viewCache[view];
       if(cb) {
         cb(view);
@@ -30,15 +30,15 @@ const updateView = (function() {
   };
 }());
 
-window.addEventListener('popstate', (e) => {
-  updateView(e.state);
+window.addEventListener('popstate', e => {
+  updateView(e.state || '/about');
 });
 
 navList.addEventListener('click', e => {
-  if(e.target !== e.currentTarget) {
+  if (e.target !== e.currentTarget) {
     e.preventDefault();
     const view = e.target.getAttribute('href');
-    if(otherView(view, window.location.pathname)) {
+    if (otherView(view, window.location.pathname)) {
       updateView(view, updateURL);
     }
   }

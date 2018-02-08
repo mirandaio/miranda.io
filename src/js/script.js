@@ -12,7 +12,7 @@ const updateView = (function() {
   return function(view, cb) {
     if (viewCache[view]) {
       container.innerHTML = viewCache[view];
-      if(cb) {
+      if (cb) {
         cb(view);
       }
     } else {
@@ -20,7 +20,7 @@ const updateView = (function() {
       xhr.addEventListener('load', function(e) {
         viewCache[view] = e.target.response;
         container.innerHTML = viewCache[view];
-        if(cb) {
+        if (cb) {
           cb(view);
         }
       });
@@ -28,7 +28,7 @@ const updateView = (function() {
       xhr.send();
     }
   };
-}());
+})();
 
 window.addEventListener('popstate', e => {
   updateView(e.state || '/about');
@@ -50,6 +50,7 @@ function updateURL(view) {
 }
 
 function otherView(view, path) {
-  return (view === '/about' && path !== '/') ||
-    (view !== '/about' && view !== path);
+  return (
+    (view === '/about' && path !== '/') || (view !== '/about' && view !== path)
+  );
 }

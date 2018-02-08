@@ -26,6 +26,7 @@
     "forever": "0.15.3",
     "html-webpack-inline-source-plugin": "0.0.6",
     "html-webpack-plugin": "2.26.0",
+    "prettier": "^1.10.2",
     "style-loader": "0.13.1",
     "webpack": "2.2.0-rc.4"
   },
@@ -37,6 +38,7 @@
     "prebuild": "rm -rf dist",
     "build": "webpack -p",
     "postbuild": "cp src/img/* src/views/*.html dist",
-    "deploy": "npm run build && forever stopall && forever start server.js >> /var/log/forever/forever.log"
+    "deploy": "npm run build && forever stopall && forever start server.js >> /var/log/forever/forever.log",
+    "prettier": "prettier --write"
   }
 }

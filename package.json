@@ -13,32 +13,7 @@
     "url": "https://github.com/mirandaio/miranda.io/issues"
   },
   "homepage": "https://github.com/mirandaio/miranda.io#readme",
-  "dependencies": {
-    "express": "4.15.2",
-    "mustache-express": "1.2.4"
-  },
   "devDependencies": {
-    "babel-core": "6.21.0",
-    "babel-loader": "6.2.10",
-    "babel-preset-env": "^1.6.1",
-    "css-loader": "0.26.1",
-    "extract-text-webpack-plugin": "2.0.0-beta.5",
-    "forever": "0.15.3",
-    "html-webpack-inline-source-plugin": "0.0.6",
-    "html-webpack-plugin": "2.26.0",
-    "prettier": "^1.10.2",
-    "style-loader": "0.13.1",
-    "webpack": "2.2.0-rc.4"
-  },
-  "scripts": {
-    "start": "node server.js",
-    "prebuild:dev": "rm -rf dist",
-    "build:dev": "webpack",
-    "postbuild:dev": "cp src/img/* src/views/*.html dist",
-    "prebuild": "rm -rf dist",
-    "build": "webpack -p",
-    "postbuild": "cp src/img/* src/views/*.html dist",
-    "deploy": "npm run build && forever stopall && forever start server.js >> /var/log/forever/forever.log",
-    "prettier": "prettier --write"
+    "webpack": "4.35.0"
   }
 }

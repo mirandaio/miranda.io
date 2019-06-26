@@ -15,7 +15,8 @@
   "homepage": "https://github.com/mirandaio/miranda.io#readme",
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "webpack-bundle-analyzer": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -30,6 +31,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --env.mode development",
-    "build": "webpack --env.mode production"
+    "build": "webpack --env.mode production",
+    "analyze": "webpack --env.mode production --env.analyze true"
   }
 }

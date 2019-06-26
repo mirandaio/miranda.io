@@ -1,7 +1,14 @@
 const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-module.exports = ({mode}) => {
+module.exports = ({mode, analyze}) => {
+  const plugins = [ new HtmlWebpackPlugin({ template: 'src/index.html'}) ];
+
+  if(analyze) {
+    plugins.push(new BundleAnalyzerPlugin());
+  }
+
   return webpackMerge({
     mode,
     output: {
@@ -12,6 +19,6 @@ module.exports = ({mode}) => {
         { test: /\.js$/, use: 'babel-loader' }
       ]
     },
-    plugins: [ new HtmlWebpackPlugin({ template: 'src/index.html'}) ]
+    plugins
   });
 };

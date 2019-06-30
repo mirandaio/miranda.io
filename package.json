@@ -14,8 +14,10 @@
   },
   "homepage": "https://github.com/mirandaio/miranda.io#readme",
   "dependencies": {
+    "css-loader": "^3.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
     "webpack-bundle-analyzer": "^3.3.2"
   },
   "devDependencies": {
@@ -30,7 +32,7 @@
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --env.mode development",
+    "start": "webpack-dev-server --env.mode development --hot",
     "build": "webpack --env.mode production",
     "analyze": "webpack --env.mode production --env.analyze true"
   }

@@ -20,5 +20,5 @@ module.exports = ({mode, analyze}) => {
       ]
     },
     plugins
-  });
+  }, require(`./webpack.${mode}`));
 };

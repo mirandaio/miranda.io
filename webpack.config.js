@@ -11,9 +11,6 @@ module.exports = ({mode, analyze}) => {
 
   return webpackMerge({
     mode,
-    output: {
-      filename: 'bundle.js'
-    },
     module: {
       rules: [
         { test: /\.js$/, use: 'babel-loader' }

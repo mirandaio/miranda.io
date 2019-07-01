@@ -1,4 +1,10 @@
 module.exports = {
+  output: {
+    filename: 'main.js'
+  },
+  devServer: {
+    historyApiFallback: true
+  },
   module: {
     rules: [
       {

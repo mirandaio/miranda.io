@@ -1,6 +1,9 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  output: {
+    filename: "main.[chunkhash].js"
+  },
   module: {
     rules: [
       {

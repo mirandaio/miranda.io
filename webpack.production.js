@@ -1,8 +1,10 @@
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   output: {
-    filename: "main.[chunkhash].js"
+    path: path.resolve(__dirname, 'build'),
+    filename: 'static/[name].[chunkhash:8].js'
   },
   module: {
     rules: [
@@ -12,5 +14,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [new MiniCssExtractPlugin()]
+  plugins: [new MiniCssExtractPlugin({
+    filename: 'static/[name].[contenthash:8].css'
+  })]
 };

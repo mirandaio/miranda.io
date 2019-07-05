@@ -1,6 +1,6 @@
 module.exports = {
   output: {
-    filename: 'main.js'
+    filename: 'static/main.js'
   },
   devServer: {
     historyApiFallback: true

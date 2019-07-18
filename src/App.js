@@ -16,6 +16,7 @@ const App = () => {
             <li><Link to="/resume">Resume</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>
+          <canvas/>
         </nav>
         <Route exact path="/" component={Home}/>
         <Route path="/projects" component={Projects}/>

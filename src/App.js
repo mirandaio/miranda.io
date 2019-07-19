@@ -27,12 +27,16 @@ class App extends Component {
               <li><Link to="/resume">Resume</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
-            <canvas ref={this.canvasRef}/>
+            <div className="canvas-container">
+              <canvas ref={this.canvasRef}/>
+            </div>
           </nav>
-          <Route exact path="/" component={Home}/>
-          <Route path="/projects" component={Projects}/>
-          <Route path="/resume" component={Resume}/>
-          <Route path="/contact" component={Contact}/>
+          <section className="container">
+            <Route exact path="/" component={Home}/>
+            <Route path="/projects" component={Projects}/>
+            <Route path="/resume" component={Resume}/>
+            <Route path="/contact" component={Contact}/>
+          </section>
         </Fragment>
       </Router>
     );

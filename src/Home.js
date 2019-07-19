@@ -4,11 +4,11 @@ import about from './img/about.jpg';
 const Home = () => {
   return (
     <Fragment>
-      <div>
-        <span>Hey</span>
-        <span>I'm Alfredo.</span>
+      <div className="main-header">
+        <span className="big-hey">Hey</span>
+        <span className="intro">I'm Alfredo.</span>
       </div>
-      <p>
+      <p className="about">
         <img src={about} alt="Profile photo"/>
         I am a software engineer. I enjoy building large custom web applications, and
         helping others. I have a solid computer science background and can tackle difficult

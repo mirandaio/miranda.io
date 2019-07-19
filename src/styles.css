@@ -1,3 +1,92 @@
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
 body {
-  background-color: papayawhip;
+  height: 100%;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+}
+
+nav {
+  width: 272px;
+  padding-top: 50px;
+  border-right: thin dotted black;
+  font-family: monospace;
+}
+
+nav ul {
+  margin: 0 auto;
+  width: 70px;
+  list-style-type: none;
+}
+
+nav li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.container {
+  flex: 1;
+  overflow: auto;
+  padding-left: 65px;
+  padding-top: 52px;
+}
+
+.main-header {
+  width: 682px;
+}
+
+.big-hey {
+  font-family: monospace;
+  margin-right: 28px;
+  font-size: 120px;
+}
+
+.intro {
+  font-family: monospace;
+  font-size: 60px;
+  color: #999;
+}
+
+.about {
+  font-size: 21px;
+  margin-top: 8px;
+  text-align: justify;
+  width: 670px;
+}
+
+img {
+  width: 304px;
+  height: 229px;
+  float: left;
+  border: 2px solid black;
+  margin-right: 20px;
+}
+
+.canvas-container {
+  position: absolute;
+  bottom: 0;
+  width: 272px;
+}
+
+canvas {
+  display: block;
+  border: 2px solid black;
+  margin: 0 auto 20px auto;
+  height: 250px;
+  width: 250px;
 }

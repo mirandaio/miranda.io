@@ -88,7 +88,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://www.mirth.com" target="_blank">
+                <a href="http://www.mirth.com" target="_blank">
                   Mirth Corporation
                 </a>
               </div>

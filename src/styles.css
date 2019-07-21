@@ -90,3 +90,48 @@ canvas {
   height: 250px;
   width: 250px;
 }
+
+.resume-section {
+  display: flex;
+  width: 730px;
+}
+
+.section-name {
+  width: 160px;
+  font-family: monospace;
+}
+
+.section-name h3 {
+  font-weight: normal;
+}
+
+.section-content {
+  width: 570px;
+}
+
+.skills-section {
+  width: 570px;
+  font-size: 16px;
+}
+
+.section-item {
+  margin-bottom: 12px;
+}
+
+.section-item ul {
+  margin-left: 24px;
+  font-size: 16px;
+}
+
+.subsection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-name {
+  font-weight: 400;
+}
+
+.italic {
+  font-style: italic;
+}

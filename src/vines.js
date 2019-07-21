@@ -36,8 +36,8 @@ export default canvas => {
       return vine.lifetime--;
     });
     vines.forEach(function(vine) {
-      const dx = Math.cos(vine.a) * vine.width / 2;
-      const dy = Math.sin(vine.a) * vine.width / 2;
+      const dx = (Math.cos(vine.a) * vine.width) / 2;
+      const dy = (Math.sin(vine.a) * vine.width) / 2;
       vine.x += dx;
       vine.y += dy;
       vine.a += vine.da / vine.width / 2;

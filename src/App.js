@@ -22,25 +22,33 @@ class App extends Component {
         <Fragment>
           <nav>
             <ul>
-              <li><Link to="/">About</Link></li>
-              <li><Link to="/projects">Projects</Link></li>
-              <li><Link to="/resume">Resume</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li>
+                <Link to="/">About</Link>
+              </li>
+              <li>
+                <Link to="/projects">Projects</Link>
+              </li>
+              <li>
+                <Link to="/resume">Resume</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
             </ul>
             <div className="canvas-container">
-              <canvas ref={this.canvasRef}/>
+              <canvas ref={this.canvasRef} />
             </div>
           </nav>
           <section className="container">
-            <Route exact path="/" component={Home}/>
-            <Route path="/projects" component={Projects}/>
-            <Route path="/resume" component={Resume}/>
-            <Route path="/contact" component={Contact}/>
+            <Route exact path="/" component={Home} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/resume" component={Resume} />
+            <Route path="/contact" component={Contact} />
           </section>
         </Fragment>
       </Router>
     );
   }
-};
+}
 
 export default App;

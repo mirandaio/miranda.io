@@ -11,7 +11,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://unc.edu" target="_blank">
+                <a href="https://unc.edu">
                   The University of North Carolina at Chapel Hill
                 </a>
               </div>
@@ -25,7 +25,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://utexas.edu" target="_blank">
+                <a href="https://utexas.edu">
                   The University of Texas at Austin
                 </a>
               </div>
@@ -46,23 +46,33 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://able.co" target="_blank">
-                  Able
+                <a href="https://www.ebi.ac.uk">
+                  European Bioinformatics Institute
                 </a>
               </div>
-              <div>Remote</div>
+              <div>Cambridge, UK</div>
             </div>
             <div class="subsection">
-              <div class="italic">Senior Software Engineer</div>
-              <div>September 2017-Present</div>
+              <div class="italic">Software Engineer</div>
+              <div>July 2018-Present</div>
             </div>
           </div>
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://www.fisglobal.com/" target="_blank">
-                  FIS
-                </a>
+                <a href="https://able.co">Able</a>
+              </div>
+              <div>Remote</div>
+            </div>
+            <div class="subsection">
+              <div class="italic">Senior Software Engineer</div>
+              <div>September 2017-June 2018</div>
+            </div>
+          </div>
+          <div class="section-item">
+            <div class="subsection">
+              <div class="item-name">
+                <a href="https://www.fisglobal.com/">FIS</a>
               </div>
               <div>Lima, Peru</div>
             </div>
@@ -74,9 +84,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://www.rapid7.com" target="_blank">
-                  Rapid7
-                </a>
+                <a href="https://www.rapid7.com">Rapid7</a>
               </div>
               <div>Austin, TX</div>
             </div>
@@ -88,9 +96,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="http://www.mirth.com" target="_blank">
-                  Mirth Corporation
-                </a>
+                <a href="http://www.mirth.com">Mirth Corporation</a>
               </div>
               <div>Austin, TX</div>
             </div>
@@ -102,9 +108,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://www.nextgen.com" target="_blank">
-                  NextGen Healthcare
-                </a>
+                <a href="https://www.nextgen.com">NextGen Healthcare</a>
               </div>
               <div>Austin, TX</div>
             </div>
@@ -116,9 +120,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://cs.unc.edu" target="_blank">
-                  UNC Computer Science Department
-                </a>
+                <a href="https://cs.unc.edu">UNC Computer Science Department</a>
               </div>
               <div>Chapel Hill, NC</div>
             </div>
@@ -130,7 +132,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="https://www.me.utexas.edu" target="_blank">
+                <a href="https://www.me.utexas.edu">
                   UT Austin Mechanical Engineering Department
                 </a>
               </div>

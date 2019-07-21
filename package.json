@@ -43,7 +43,8 @@
     "start": "webpack-dev-server --env.mode development --hot",
     "build": "webpack --env.mode production",
     "deploy": "yarn build && forever stopall && forever start server.js",
-    "analyze": "webpack --env.mode production --env.analyze true"
+    "analyze": "webpack --env.mode production --env.analyze true",
+    "prettier": "prettier --write 'src/**/*.js'"
   },
   "husky": {
     "hooks": {

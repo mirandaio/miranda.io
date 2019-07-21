@@ -11,7 +11,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="http://unc.edu" target="_blank">
+                <a href="https://unc.edu" target="_blank">
                   The University of North Carolina at Chapel Hill
                 </a>
               </div>
@@ -25,7 +25,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="http://utexas.edu" target="_blank">
+                <a href="https://utexas.edu" target="_blank">
                   The University of Texas at Austin
                 </a>
               </div>
@@ -46,7 +46,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="http://able.co/" target="_blank">
+                <a href="https://able.co" target="_blank">
                   Able
                 </a>
               </div>
@@ -116,7 +116,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="http://cs.unc.edu" target="_blank">
+                <a href="https://cs.unc.edu" target="_blank">
                   UNC Computer Science Department
                 </a>
               </div>
@@ -130,7 +130,7 @@ const Resume = () => {
           <div class="section-item">
             <div class="subsection">
               <div class="item-name">
-                <a href="http://www.me.utexas.edu" target="_blank">
+                <a href="https://www.me.utexas.edu" target="_blank">
                   UT Austin Mechanical Engineering Department
                 </a>
               </div>

@@ -1,4 +1,8 @@
-const express = require('express');
+import express from 'express';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import { StaticRouter } from 'react-router';
+import App from './src/App';
 const { PORT = 8000 } = process.env;
 
 const app = express();
@@ -6,6 +10,11 @@ const app = express();
 app.use('/static', express.static('build/static'));
 
 app.get('/*', (req, res) => {
+  const html = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url}>
+      <App />
+    </StaticRouter>
+  );
   res.sendFile('index.html', {
     root: 'build'
   });

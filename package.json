@@ -37,15 +37,16 @@
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
     "start": "webpack-dev-server --env.mode development --hot",
     "build": "webpack --env.mode production",
+    "build:server": "webpack --config webpack.server.js",
     "deploy": "yarn build && forever stopall && forever start server.js",
     "analyze": "webpack --env.mode production --env.analyze true",
-    "prettier": "prettier --write 'src/**/*.js'",
-    "deploy": "yarn build && forever stopall && forever start server.js"
+    "prettier": "prettier --write 'src/**/*.js'"
   },
   "husky": {
     "hooks": {

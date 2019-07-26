@@ -10,6 +10,9 @@ module.exports = {
   target: 'node',
   externals: [nodeExternals()],
   module: {
-    rules: [{ test: /\.js$/, use: 'babel-loader' }]
+    rules: [
+      { test: /\.js$/, use: 'babel-loader' },
+      { test: /\.jpe?g$/, use: 'url-loader' }
+    ]
   }
 };

@@ -15,6 +15,7 @@
   "homepage": "https://github.com/mirandaio/miranda.io#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mustache-express": "^1.2.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1"

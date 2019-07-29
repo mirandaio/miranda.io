@@ -8,6 +8,10 @@ module.exports = {
     filename: 'server.bundle.js'
   },
   target: 'node',
+  // see https://webpack.js.org/configuration/node/#node__dirname
+  node: {
+    __dirname: false
+  },
   externals: [nodeExternals()],
   module: {
     rules: [

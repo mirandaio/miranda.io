@@ -1,40 +1,31 @@
-const fs = require('fs');
-const express = require('express');
-const mustacheExpress = require('mustache-express');
-
-const about = fs.readFileSync('dist/about.html', 'utf8');
-const projects = fs.readFileSync('dist/projects.html', 'utf8');
-const resume = fs.readFileSync('dist/resume.html', 'utf8');
-const contact = fs.readFileSync('dist/contact.html', 'utf8');
+import express from 'express';
+import mustacheExpress from 'mustache-express';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import { StaticRouter } from 'react-router';
+import App from './src/App';
+const { PORT = 8000 } = process.env;
 
 const app = express();
 
 app.engine('html', mustacheExpress());
-app.set('views', './dist');
+app.set('views', './build');
 app.set('view engine', 'mustache');
 
-app.get('/', (req, res) => {
-  res.render('index.html', { content: about });
+app.use('/static', express.static('build/static'));
+
+app.get('/favicon.png', (req, res) => {
+  res.sendFile(`${__dirname}/build/favicon.png`);
 });
 
-app.get('/projects', (req, res) => {
-  res.render('index.html', { content: projects });
+app.get('/*', (req, res) => {
+  const html = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url}>
+      <App />
+    </StaticRouter>
+  );
+
+  res.render('index.html', { content: html });
 });
 
-app.get('/resume', (req, res) => {
-  res.render('index.html', { content: resume });
-});
-
-app.get('/contact', (req, res) => {
-  res.render('index.html', { content: contact });
-});
-
-app.get(/.*\.(png|jpg)/, (req, res) => {
-  res.sendFile('dist' + req.originalUrl, { root: __dirname });
-});
-
-app.get(/.*?\.html$/, (req, res) => {
-  res.sendFile('dist' + req.originalUrl, { root: __dirname });
-});
-
-app.listen(3000, () => console.log('Listening of port 3000'));
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

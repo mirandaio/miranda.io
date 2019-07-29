@@ -14,6 +14,10 @@ app.set('view engine', 'mustache');
 
 app.use('/static', express.static('build/static'));
 
+app.get('/favicon.png', (req, res) => {
+  res.sendFile(`${__dirname}/build/favicon.png`);
+});
+
 app.get('/*', (req, res) => {
   const html = ReactDOMServer.renderToString(
     <StaticRouter location={req.url}>

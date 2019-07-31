@@ -21,7 +21,10 @@ module.exports = ({ mode, analyze }) => {
       module: {
         rules: [
           { test: /\.js$/, use: 'babel-loader' },
-          { test: /\.jpe?g$/, use: 'url-loader' }
+          {
+            test: /\.jpe?g$/,
+            use: [{ loader: 'url-loader', options: { limit: 8000 } }]
+          }
         ]
       },
       plugins

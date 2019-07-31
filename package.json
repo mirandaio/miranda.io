@@ -44,7 +44,8 @@
   "scripts": {
     "start": "webpack-dev-server --env.mode development --hot",
     "build": "webpack --env.mode production",
-    "deploy": "yarn build && forever stopall && forever start server.build.js",
+    "build:server": "webpack --config webpack.server.js",
+    "deploy": "yarn build && yarn build:server && forever stopall && forever start server.build.js",
     "analyze": "webpack --env.mode production --env.analyze true",
     "prettier": "prettier --write 'src/**/*.js'"
   },

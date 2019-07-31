@@ -3,9 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
 
-const serverConfig = require('./webpack.server');
-
-const browserConfig = ({ mode, analyze }) => {
+module.exports = ({ mode, analyze }) => {
   const plugins = [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -31,5 +29,3 @@ const browserConfig = ({ mode, analyze }) => {
     require(`./webpack.${mode}`)
   );
 };
-
-module.exports = [browserConfig, serverConfig];

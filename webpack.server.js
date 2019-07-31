@@ -5,7 +5,7 @@ module.exports = {
   entry: './server.js',
   output: {
     path: __dirname,
-    filename: 'server.bundle.js'
+    filename: 'server.build.js'
   },
   target: 'node',
   // see https://webpack.js.org/configuration/node/#node__dirname

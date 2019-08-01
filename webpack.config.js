@@ -23,7 +23,12 @@ module.exports = ({ mode, analyze }) => {
           { test: /\.js$/, use: 'babel-loader' },
           {
             test: /\.jpe?g$/,
-            use: [{ loader: 'url-loader', options: { limit: 8000 } }]
+            use: [
+              {
+                loader: 'url-loader',
+                options: { limit: 8000, outputPath: 'static' }
+              }
+            ]
           }
         ]
       },

@@ -96,25 +96,13 @@ const Resume = () => {
           <div className="section-item">
             <div className="subsection">
               <div className="item-name">
-                <a href="http://www.mirth.com">Mirth Corporation</a>
-              </div>
-              <div>Austin, TX</div>
-            </div>
-            <div className="subsection">
-              <div className="italic">Software Engineer</div>
-              <div>April 2015-October 2015</div>
-            </div>
-          </div>
-          <div className="section-item">
-            <div className="subsection">
-              <div className="item-name">
                 <a href="https://www.nextgen.com">NextGen Healthcare</a>
               </div>
               <div>Austin, TX</div>
             </div>
             <div className="subsection">
               <div className="italic">Software Engineer</div>
-              <div>March 2014-April 2015</div>
+              <div>March 2014-October 2015</div>
             </div>
           </div>
           <div className="section-item">
